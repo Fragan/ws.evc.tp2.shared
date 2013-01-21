@@ -1,27 +1,26 @@
 package j3d.interfaces.universe;
 
-import j3d.abstraction.universe.ACamera;
-import j3d.abstraction.universe.AObject;
-
 import java.util.Collection;
 
 public interface ISharedUniverse {
 	
-	public Collection<AObject> getObjects();
+	public Collection<IObject> getObjects();
 	
-	public Collection<ACamera> getCameras();	
+	public Collection<ICamera> getCameras();	
 	
-	public boolean add(AObject object);
+	public boolean add(IObject object);
 	
-	public void remove(AObject object);
+	public void remove(IObject object);
 	
-	public boolean add(ACamera camera);
+	public boolean add(ICamera camera);
 	
-	public void remove(ACamera camera);
+	public void remove(ICamera camera);
 	
-	public AObject getObject(String name);
+	public IObject getObject(String name);
 
-	public ACamera getCamera(String name);
+	public ICamera getCamera(String name);
+	
+	public String getName();
 	
 	public void update(ICamera camera);
 	

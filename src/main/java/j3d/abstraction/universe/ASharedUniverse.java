@@ -10,23 +10,25 @@ import java.util.Map;
 
 public class ASharedUniverse implements ISharedUniverse {
 
-	private Map<String, AObject> objects;
-	private Map<String, ACamera> cameras;
+	private Map<String, IObject> objects;
+	private Map<String, ICamera> cameras;
+	private String name;
 
-	public ASharedUniverse() {
-		objects = new HashMap<String, AObject>();
-		cameras = new HashMap<String, ACamera>();
+	public ASharedUniverse(String name) {
+		objects = new HashMap<String, IObject>();
+		cameras = new HashMap<String, ICamera>();
+		this.name = name;
 	}
 
-	public Collection<AObject> getObjects() {
+	public Collection<IObject> getObjects() {
 		return objects.values();
 	}
 
-	public Collection<ACamera> getCameras() {
+	public Collection<ICamera> getCameras() {
 		return cameras.values();
 	}
 
-	public boolean add(AObject object) {
+	public boolean add(IObject object) {
 		if (getObject(object.getName()) != null) {
 			System.err.println("The object " + object.getName()
 					+ " already included in the universe");
@@ -36,11 +38,11 @@ public class ASharedUniverse implements ISharedUniverse {
 		return true;
 	}
 
-	public void remove(AObject object) {
+	public void remove(IObject object) {
 		objects.remove(object.getName());
 	}
 
-	public boolean add(ACamera camera) {
+	public boolean add(ICamera camera) {
 		if (getObject(camera.getOwnerName()) != null) {
 			System.err.println("The camera " + camera.getOwnerName()
 					+ " already included in the universe");
@@ -50,16 +52,20 @@ public class ASharedUniverse implements ISharedUniverse {
 		return true;
 	}
 
-	public void remove(ACamera camera) {
+	public void remove(ICamera camera) {
 		cameras.remove(camera.getOwnerName());
 	}
 
-	public AObject getObject(String name) {
+	public IObject getObject(String name) {
 		return objects.get(name);
 	}
 
-	public ACamera getCamera(String name) {
+	public ICamera getCamera(String name) {
 		return cameras.get(name);
+	}
+	
+	public String getName() {
+		return name;
 	}
 
 	public void update(ICamera camera) {
