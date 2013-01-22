@@ -18,7 +18,7 @@ public class BroadcastUpdates implements Serializable {
 	 * 
 	 *
 	 */
-	private static BroadcastUpdates instance;
+	public static BroadcastUpdates instance;
 	private static final long serialVersionUID = -2757235753788352228L;
 	private int portDiffusion;
 	private String nomGroupe;

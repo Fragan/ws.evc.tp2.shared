@@ -87,6 +87,7 @@ public class ASharedUniverse  implements ISharedUniverse, Serializable {
 		if (ourObject != null) {
 			ourObject.setOrientation(object.getOrientation());
 			ourObject.setPosition(object.getPosition());
+			System.out.println(BroadcastUpdates.instance);
 			BroadcastUpdates.getInstance().diffuse(object);
 		}
 
