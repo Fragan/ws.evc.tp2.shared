@@ -4,12 +4,17 @@ import j3d.interfaces.universe.ICamera;
 import j3d.interfaces.universe.IObject;
 import j3d.interfaces.universe.ISharedUniverse;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ASharedUniverse implements ISharedUniverse {
+import broadcast.BroadcastUpdates;
 
+public class ASharedUniverse  implements ISharedUniverse, Serializable {
+
+
+	private static final long serialVersionUID = 1714649179279421333L;
 	private Map<String, IObject> objects;
 	private Map<String, ICamera> cameras;
 	private String name;
@@ -73,6 +78,7 @@ public class ASharedUniverse implements ISharedUniverse {
 		if (ourCamera != null) {
 			ourCamera.setOrientation(camera.getOrientation());
 			ourCamera.setPosition(camera.getPosition());
+			BroadcastUpdates.getInstance().diffuse(camera);
 		}
 	}
 
@@ -81,6 +87,7 @@ public class ASharedUniverse implements ISharedUniverse {
 		if (ourObject != null) {
 			ourObject.setOrientation(object.getOrientation());
 			ourObject.setPosition(object.getPosition());
+			BroadcastUpdates.getInstance().diffuse(object);
 		}
 
 	}

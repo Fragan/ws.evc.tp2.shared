@@ -2,12 +2,18 @@ package j3d.abstraction.universe;
 
 import j3d.interfaces.universe.ICamera;
 
+import java.io.Serializable;
+
 import javax.media.j3d.Transform3D;
 import javax.vecmath.Quat4d;
 import javax.vecmath.Vector3d;
 
-public class ACamera implements ICamera {
+public class ACamera implements ICamera, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2L;
 	private String ownerName;
 	private Vector3d position;
 	private Quat4d orientation;
@@ -40,5 +46,9 @@ public class ACamera implements ICamera {
 
 	public void setTransform(Transform3D t3d) {
 		t3d.get(orientation, position);
+	}
+
+	public ACamera getAbstraction() {
+		return this;
 	}
 }

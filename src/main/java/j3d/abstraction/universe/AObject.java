@@ -2,13 +2,16 @@ package j3d.abstraction.universe;
 
 import j3d.interfaces.universe.IObject;
 
+import java.io.Serializable;
+
 import javax.media.j3d.Transform3D;
 import javax.vecmath.Quat4d;
 import javax.vecmath.Vector3d;
 
 // Les donnees
-public class AObject implements IObject {
+public class AObject implements IObject, Serializable {
 
+	private static final long serialVersionUID = 2L;
 	private String name;
 	private Vector3d position;
 	private Quat4d orientation;
@@ -47,5 +50,9 @@ public class AObject implements IObject {
 
 	public void setTransform(Transform3D t3d) {
 		t3d.get(orientation, position);
+	}
+
+	public AObject getAbstraction() {
+		return this;
 	}
 }

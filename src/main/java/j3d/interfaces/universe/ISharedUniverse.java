@@ -1,8 +1,9 @@
 package j3d.interfaces.universe;
 
+import java.rmi.Remote;
 import java.util.Collection;
 
-public interface ISharedUniverse {
+public interface ISharedUniverse extends  Remote {
 	
 	public Collection<IObject> getObjects();
 	
