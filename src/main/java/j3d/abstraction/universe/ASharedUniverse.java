@@ -74,22 +74,11 @@ public class ASharedUniverse  implements ISharedUniverse, Serializable {
 	}
 
 	public void update(ICamera camera) {
-		ICamera ourCamera = cameras.get(camera.getOwnerName());
-		if (ourCamera != null) {
-			ourCamera.setOrientation(camera.getOrientation());
-			ourCamera.setPosition(camera.getPosition());
-			BroadcastUpdates.getInstance().diffuse(camera);
-		}
+	
 	}
 
 	public void update(IObject object) {
-		IObject ourObject = objects.get(object.getName());
-		if (ourObject != null) {
-			ourObject.setOrientation(object.getOrientation());
-			ourObject.setPosition(object.getPosition());
-			System.out.println(BroadcastUpdates.instance);
-			BroadcastUpdates.getInstance().diffuse(object);
-		}
+		
 
 	}
 

@@ -50,7 +50,7 @@ public class BroadcastUpdates implements Serializable {
 			adresseDiffusion = InetAddress.getByName(nomGroupe);
 			socketDiffusion = new MulticastSocket();
 			socketDiffusion.setTimeToLive(64);
-			socketDiffusion.setLoopbackMode(true); // pour des envois d'une
+			socketDiffusion.setLoopbackMode(false); // pour des envois d'une
 													// machine à une autre
 			// si on veut faire des tests avec serveur et clients sur une même
 			// machine, il faut écrire : socketDiffusion.setLoopbackMode(false)

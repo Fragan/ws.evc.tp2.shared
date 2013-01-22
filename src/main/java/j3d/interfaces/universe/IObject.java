@@ -11,17 +11,17 @@ import javax.vecmath.Vector3d;
 public interface IObject {
 	public Vector3d getPosition();
 
-	public void setPosition(Vector3d position);
+	public void setPosition(Vector3d position, boolean diffuse);
 
 	public Quat4d getOrientation();
 
-	public void setOrientation(Quat4d orientation);
+	public void setOrientation(Quat4d orientation, boolean diffuse);
 
 	public String getName();
 
 	public String getURLGeometry();
 	
-	public void setTransform(Transform3D t3d);
+	public void setTransform(Transform3D t3d, boolean diffuse);
 
 	public AObject getAbstraction();
 }

@@ -32,7 +32,7 @@ public class ACamera implements ICamera, Serializable {
 		return position;
 	}
 
-	public void setPosition(Vector3d position) {
+	public void setPosition(Vector3d position, boolean diffuse) {
 		this.position = position;
 	}
 
@@ -40,11 +40,11 @@ public class ACamera implements ICamera, Serializable {
 		return orientation;
 	}
 
-	public void setOrientation(Quat4d orientation) {
+	public void setOrientation(Quat4d orientation, boolean diffuse) {
 		this.orientation = orientation;
 	}
 
-	public void setTransform(Transform3D t3d) {
+	public void setTransform(Transform3D t3d, boolean diffuse) {
 		t3d.get(orientation, position);
 	}
 
