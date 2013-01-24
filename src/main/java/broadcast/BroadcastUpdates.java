@@ -42,7 +42,7 @@ public class BroadcastUpdates implements Serializable {
 			throws RemoteException {
 		this.portDiffusion = portDiffusion;
 		nomGroupe = ng;
-		System.out.println("Diffuseur sur le port " + portDiffusion
+		System.out.println("Diffusion sur le port " + portDiffusion
 				+ " a destination du groupe " + nomGroupe);
 		adresseDiffusion = null;
 		socketDiffusion = null;
